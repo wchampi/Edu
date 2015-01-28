@@ -69,11 +69,11 @@ if (!class_exists('Edu_Db_PDO')) {
             }
         }
 
-        public function fetchBy($where, $table, $orderby = null, $limit = null, $params = array()) {
-            return self::fetchAll(self::_prepareSelectSimple($where, $table, $orderby, $limit), $params);
+        public function fetchBy($table, $where, $params = array(), $orderby = null, $limit = null, $cache = false) {
+            return self::fetchAll(self::_prepareSelectSimple($where, $table, $orderby, $limit), $params, $cache);
         }
 
-        public function fetchOneBy($where, $table, $orderby = null, $params = array(), $cache = false) {
+        public function fetchOneBy($table, $where, $params = array(), $orderby = null, $cache = false) {
             return self::fetchOne(self::_prepareSelectSimple($where, $table, $orderby, 1), $params, $cache);
         }
 
